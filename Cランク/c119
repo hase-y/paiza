@@ -1,0 +1,24 @@
+    $input_line = explode(" ", trim(fgets(STDIN)));
+    $house = $input_line[0];
+    $gaki = $input_line[1];
+    $limit = $input_line[2];
+    $array = [];
+    for($i=0; $i<$gaki; $i++){
+        array_push($array, trim(fgets(STDIN)));
+    }
+    //var_dump($array);
+    $count = 0;
+    $Count = 0;
+    $ng = 0;
+    for($n=1; $n<=$house; $n++){
+        if(in_array($n, $array)){
+            $ng++;
+            if($ng == $limit){
+                break;
+            }
+        }else{
+            $count++;
+            $ng = 0;
+        }
+    }
+    echo $count;

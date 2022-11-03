@@ -1,0 +1,10 @@
+    $input_line = fgets(STDIN);
+    //$count = mb_strlen($input_line);
+    $boin = ["a","i","u","e","o","A","I","U","E","O"];
+    //for($i=0; $i<$count; $i++){
+        for($i=0; $i<10; $i++){
+        //if(strpos($input_line, $boin[$i])){
+          $input_line = str_replace($boin[$i], "", $input_line);
+        //}
+    }
+    echo $input_line;

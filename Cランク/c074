@@ -1,0 +1,15 @@
+ $input_line = explode(" ", trim(fgets(STDIN)));
+    $height = $input_line[0];
+    $Height = $input_line[2];
+    $array = [];
+    for($i=0; $i<$height; $i++){
+        array_push($array, trim(fgets(STDIN)));
+    }
+    $spell = implode($array);
+    $spell = wordwrap($spell,$Height,",",true);
+    $Array =  explode(",", $spell);
+    $count = count($Array);
+    for($n=0; $n<$count; $n++){
+        echo $Array[$n];
+        echo "\n";
+    }

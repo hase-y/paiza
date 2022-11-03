@@ -1,0 +1,32 @@
+    $input_line = explode(" ", trim(fgets(STDIN)));
+    $sign = $input_line[0];
+    $a = $input_line[1];
+    $b = $input_line[2];
+    $sign_arrow = trim(fgets(STDIN));
+    $sign_arrow = str_split($sign_arrow);
+    $sign_arrow2 = $sign_arrow;
+    $a_arrow = trim(fgets(STDIN));
+    $a_arrow = str_split($a_arrow);
+    $b_arrow = trim(fgets(STDIN));
+    $b_arrow = str_split($b_arrow);
+    for($i=0; $i<$sign; $i++){
+            //$I = $sign_arrow[0];
+            //$N = $a_arrow[0];
+            if($sign_arrow[0] == $a_arrow[0]){
+                array_shift($sign_arrow);
+                array_shift($a_arrow);
+            }else{
+                array_shift($sign_arrow);
+            }
+    }
+    for($n=0; $n<$sign; $n++){
+            //$I = $sign_arrow2[0];
+            //$M = $b_arrow[0];
+            if($sign_arrow2[0] == $b_arrow[0]){
+                array_shift($sign_arrow2);
+                array_shift($b_arrow);
+            }else{
+                array_shift($sign_arrow2);
+            }
+    }
+    echo count($a_arrow), " ", count($b_arrow);

@@ -1,0 +1,58 @@
+    $input_line = explode(" ", trim(fgets(STDIN)));
+    $race = $input_line[0];
+    $num = $input_line[1];
+    $array_1 = [];
+    for($i=0; $i<$race; $i++){
+        array_push($array_1, trim(fgets(STDIN)));
+    }
+    $array_2 = [];
+    for($i=0; $i<$race; $i++){
+        array_push($array_2, trim(fgets(STDIN)));
+    }
+    $array_3 = [];
+    for($i=0; $i<$race; $i++){
+        array_push($array_3, trim(fgets(STDIN)));
+    }
+    //$horce_1 = 0;
+    $Num = $race - $num + 1;
+    $Array_1 = [];
+    for($k=0; $k<$Num; $k++){
+        $horce_1 = 0;
+        for($n=0; $n<$num; $n++){
+            $N = $n + $k;
+            $horce_1 = $horce_1 + $array_1[$N];
+        }
+        $horce_1 = $horce_1 / $num;
+        array_push($Array_1, $horce_1);
+    }
+    $Horce_1 = min($Array_1);
+    $Array_2 = [];
+    for($k=0; $k<$Num; $k++){
+        $horce_2 = 0;
+        for($n=0; $n<$num; $n++){
+            $N = $n + $k;
+            $horce_2 = $horce_2 + $array_2[$N];
+        }
+        $horce_2 = $horce_2 / $num;
+        array_push($Array_2, $horce_2);
+    }
+    $Horce_2 = min($Array_2);
+    $Array_3 = [];
+    for($k=0; $k<$Num; $k++){
+        $horce_3 = 0;
+        for($n=0; $n<$num; $n++){
+            $N = $n + $k;
+            $horce_3 = $horce_3 + $array_3[$N];
+        }
+        $horce_3 = $horce_3 / $num;
+        array_push($Array_3, $horce_3);
+    }
+    $Horce_3 = min($Array_3);
+    $array_123 = [$Horce_1, $Horce_2, $Horce_3];
+    if(min($array_123) == $Horce_1){
+        echo "1";
+    }elseif(min($array_123) == $Horce_2){
+        echo "2";
+    }elseif(min($array_123) == $Horce_3){
+        echo "3";
+    }

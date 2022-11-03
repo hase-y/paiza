@@ -1,0 +1,45 @@
+    $input_line = explode(" ", trim(fgets(STDIN)));
+    $num = trim(fgets(STDIN));
+    $num = wordwrap($num, 1, ",", true);
+    $num = explode(",", $num);
+    $a = ceil($input_line[0]/$input_line[1]);
+    $array = array_chunk($num, $input_line[1]);
+    //var_dump($array);
+    //$A = $input_line[1];
+    $last = $array[$a-1];
+    //var_dump($last);
+    $count = count($last);
+    //var_dump((string)$count);
+    if($count < (int)$input_line[1]){
+        $b = $input_line[1] - count($last);
+        for($i=0; $i<$b; $i++){
+            array_push($last, "0");
+        }
+    }
+    $array[$a-1] = $last;
+    //var_dump($array);
+    // $aは文字列を区切る数
+    $Array = [];
+    for($i=0; $i<$a-1; $i++){
+        $c = $array[$i];
+        $d = $array[$i+1];
+        
+        for($n=0; $n<$input_line[1]; $n++){
+            if($i==0){
+                if($c[$n] == $d[$n]){
+                    $Array[$n] = "0";
+                }else{
+                    $Array[$n] = "1";
+                }
+            }else{
+                if($Array[$n] == $d[$n]){
+                    $Array[$n] = "0";
+                }else{
+                    $Array[$n] = "1";
+                }
+            }
+        }
+    }
+    foreach($Array as $result){
+        echo $result;
+    }

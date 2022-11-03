@@ -1,0 +1,18 @@
+    $input_line = trim(fgets(STDIN));
+    $array = [];
+    for($i=0; $i<$input_line; $i++){
+        array_push($array, trim(fgets(STDIN)));
+    }
+    for($o=0; $o<$input_line-1; $o++){
+        $a = substr($array[$o], -1);
+        $b = substr($array[$o+1], 0, 1);
+        if($a != $b){
+            print_r($a);
+            print_r(" ");
+            print_r($b);
+            exit;
+        }else{
+            
+        }
+    }
+    print_r("Yes");

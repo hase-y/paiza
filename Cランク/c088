@@ -1,0 +1,17 @@
+    $tool = trim(fgets(STDIN));
+    $price = explode(" ", trim(fgets(STDIN))); 
+    // for($i=0; $i<$tool; $i++){
+    //     $quantity[$i];
+    // }
+    $a = explode(" ", trim(fgets(STDIN)));
+    $money = $a[0];
+    $shopping_number = $a[1];
+    for($n=0; $n<$shopping_number; $n++){
+        $b = explode(" ", trim(fgets(STDIN)));
+        $price_number = $b[0]-1;
+        $Purchase_number = $b[1];
+        if($price[$price_number]*$Purchase_number<=$money){
+            $money = $money - ($price[$price_number]*$Purchase_number);
+        }
+    }
+    echo $money;

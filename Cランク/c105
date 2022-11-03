@@ -1,0 +1,13 @@
+    $input_line = trim(fgets(STDIN));
+    $A = trim(fgets(STDIN));
+    $b = explode(" ", $A);
+    $Array=[];
+    foreach($b as $d){
+        $c = in_array($d+1, $b);
+        if($c){
+            
+        }else{
+            array_push($Array, $d);
+        }
+    }
+    echo array_sum($Array);

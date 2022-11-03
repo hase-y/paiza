@@ -1,0 +1,23 @@
+    $input_line = explode(" ", trim(fgets(STDIN)));
+    $a = $input_line[0];
+    $b = $input_line[1];
+    $c = $input_line[2];
+    $num = trim(fgets(STDIN));
+    $array = [];
+    for($i=0; $i<$num; $i++){
+        $d = explode(" ", trim(fgets(STDIN)));
+        $e = $d[0];
+        $f = $d[1];
+        $z = 0;
+        for($o=$e; $o<$f; $o++){
+            if(9<=$o && $o<17){
+               $z = $z + $a; 
+            }elseif(17<=$o && $o<22){
+                $z = $z + $b;
+            }else{
+                $z = $z + $c;
+            }
+        }
+        array_push($array, $z);
+    }
+    echo array_sum($array);

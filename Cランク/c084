@@ -1,0 +1,11 @@
+    $input_line = trim(fgets(STDIN));
+    $a = mb_strlen($input_line);
+    for($i=1; $i<=($a+2); $i++){
+    echo "+";
+    }
+    echo PHP_EOL;
+    echo "+".$input_line."+";
+    echo PHP_EOL;
+    for($i=1; $i<=($a+2); $i++){
+    echo "+";
+    }

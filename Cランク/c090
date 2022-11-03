@@ -1,0 +1,18 @@
+ $input_line = trim(fgets(STDIN));
+    $input_line = str_replace("-", "", $input_line);
+    //文字列を配列にする
+    $cellnumber = str_split($input_line);
+    //0を10に置き換える
+    //配列の要素数を数える
+    $n = count($cellnumber);
+    //０を１０に書き換えるif分を要素数分繰り返す
+    for($i = 0; $i < $n; $i++){
+        if($cellnumber[$i] == 0){
+            $cellnumber[$i] = 10;
+        }
+    }    
+    
+    foreach ($cellnumber as &$v){
+         $v = $v + 2;
+      }
+    echo (array_sum($cellnumber)) * 2;

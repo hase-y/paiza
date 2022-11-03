@@ -1,0 +1,35 @@
+   $input_line = explode(" ", trim(fgets(STDIN)));
+    $people = $input_line[0];
+    $song = $input_line[1];
+    $correct = [];
+    for($i=0; $i<$song; $i++){
+        array_push($correct, trim(fgets(STDIN)));
+    }
+    
+    $array = [];
+    for($i=0; $i<$people; $i++){
+        $people_score = 100;
+        for($n=0; $n<$song; $n++){
+            $score = trim(fgets(STDIN));
+            $a = $score - $correct[$n];
+            if($a<0){
+                $a = -$a;
+            }
+            if($a <= 5){
+                
+            }elseif(5<$a && $a<=10){
+                $people_score = $people_score -1;
+            }elseif(10<$a && $a<=20){
+                $people_score = $people_score -2;
+            }elseif(20<$a && $a<=30){
+                $people_score = $people_score -3;
+            }else{
+                $people_score = $people_score -5;
+            }
+        }
+        if($people_score<0){
+            $people_score = 0;
+        }
+        array_push($array, $people_score);
+    }
+    echo max($array);

@@ -1,0 +1,44 @@
+//空の配列用意
+    $array = [];
+    //入力を配列に収納
+    while ($line = fgets(STDIN)){
+    $x = trim($line);
+    array_push($array,$x);
+    }
+    //in_array ($検索する値 , $配列 [,?$strict = FALSE ] )
+    //$array[0]を変数に入れる
+    $a = $array[0];
+    //Aを出力する日数の配列を用意する
+    $array_A = [];
+    for($j = 1; $j <= $a; $j++){
+        array_push($array_A, $array[$j]);
+    }
+    //Bを出力する日数の配列を用意する
+    $array_B = [];
+    for($k = $a + 2; $k <= count($array); $k++){
+        array_push($array_B, $array[$k]);
+    }
+    //AとBがかぶる日
+    //$array_AB = array_intersect($array_A, $array_B);
+    //var_dump($array_A,$array_B,$array_AB);
+    //31回×を出力する
+    $w = "A";
+    for($i = 1; $i <= 31; $i++){
+        //AとBがかぶる日を交互にABで出力する
+        if(in_array($i, $array_A) && in_array($i, $array_B) ){
+            echo $w;
+            echo "\n";
+            if($w == "A"){
+                $w = "B";
+            }else{
+                $w = "A";
+            }
+            
+        }elseif(in_array($i, $array_A)){
+            echo "A\n";
+        }elseif(in_array($i, $array_B)){
+            echo "B\n"; 
+        }else{
+            echo "x\n";
+        }
+    }

@@ -1,0 +1,12 @@
+    $a = trim(fgets(STDIN));
+    $b = strrev($a);
+    $c = $a + $b;
+    for($i=0; $c<1000000000; $i++){
+        $d = strrev($c);
+        if($c == $d){
+            echo $c;
+            exit;
+        }else{
+            $c = $c + $d;
+        }
+    }

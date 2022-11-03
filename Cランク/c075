@@ -1,0 +1,18 @@
+    $input_line = explode(" ", trim(fgets(STDIN)));
+    $cash = $input_line[0];
+    $count = $input_line[1];
+    $price = [];
+    $point = 0;
+    for($i=0; $i < $count; $i++){
+        array_push($price, fgets(STDIN));
+        if($price[$i] > $point){
+            $cash -= $price[$i];
+            $point += $price[$i] / 10;
+            echo $cash, " " , $point;
+            echo "\n";
+        }else{
+            $point -= $price[$i];
+            echo $cash, " " , $point;
+            echo "\n";
+        }
+    }

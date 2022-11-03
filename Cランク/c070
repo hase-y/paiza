@@ -1,0 +1,28 @@
+$input_line = trim(fgets(STDIN));
+    for($i=0; $i<$input_line; $i++){
+        $num = trim(fgets(STDIN));
+        $num = wordwrap($num, 1, ",", true);
+        $num = explode(",", $num);
+        $array = array_count_values($num);
+        //for($n=0; $n<4; $n++){
+            $count = count($array);
+            if($count == 4){
+                echo "No Pair";
+                echo "\n";
+            }elseif($count == 3){
+                echo "One Pair";
+                echo "\n";
+            }elseif($count == 2){
+                if(in_array("3", $array)){
+                    echo "Three Card";
+                    echo "\n";
+                }else{
+                    echo "Two Pair";
+                    echo "\n";
+                }
+            }else{
+                echo "Four Card";
+                echo "\n";
+            }
+        
+    }

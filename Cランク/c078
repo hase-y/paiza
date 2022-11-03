@@ -1,0 +1,24 @@
+    $input_line = explode(" ", trim(fgets(STDIN)));
+    $day = $input_line[0];
+    $low = $input_line[1];
+    $high = $input_line[2];
+    $stock = 0;
+    $profit = 0;
+        for($i=1; $i<=$day; $i++){
+            $stock_price = trim(fgets(STDIN));
+                if($i < $day){
+                    if($stock_price<=$low){
+                        $stock += 1;
+                        $profit = $profit - $stock_price;
+                    }elseif($stock_price>$low && $stock_price<$high){
+                        
+                    }else{
+                        $profit = $profit + ($stock*$stock_price);
+                        $stock = 0;
+                    }
+                }else{
+                    $profit = $profit + ($stock*$stock_price);
+                }
+        }
+        echo $profit;
+        

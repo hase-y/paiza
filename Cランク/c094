@@ -1,0 +1,20 @@
+    $input_line = fgets(STDIN);
+    $array=[];
+    for($i=0; $i<$input_line; $i++){
+        $income = trim(fgets(STDIN));
+        if($income<=100000){
+            array_push($array, 0);
+        }elseif(100000<$income && $income<=750000){
+            $tax = ($income - 100000)*0.1;
+            array_push($array, floor($tax));
+        }elseif(750000<$income && $income<=1500000){
+            $tax = ($income - 750000)*0.2;
+            $tax = $tax + 65000;
+            array_push($array, floor($tax));
+        }else{
+            $tax = ($income - 1500000)*0.4;
+            $tax = $tax + 215000;
+            array_push($array, floor($tax));
+        }
+    }
+    echo array_sum($array);

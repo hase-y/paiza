@@ -1,0 +1,18 @@
+ $input_line = fgets(STDIN);
+    $array = [];
+    $user_array = [];
+    for($i=0; $i<$input_line; $i++){
+        $user = trim(fgets(STDIN));
+        $number = preg_replace('/[^0-9]/', '', $user);
+        array_push($array, $number);
+        array_push($user_array, $user);
+    }
+    sort($array);
+    for($n=0; $n<$input_line; $n++){
+        for($m=0; $m<$input_line; $m++){
+            if(preg_replace('/[^0-9]/', '', $user_array[$m]) == $array[$n]){
+            echo $user_array[$m];
+            echo "\n";
+            }
+        }
+    }

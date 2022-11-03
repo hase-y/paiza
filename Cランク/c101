@@ -1,0 +1,8 @@
+    $racky = trim(fgets(STDIN));
+    $count=0;
+    for($i=0; $i<=365; $i++){
+        if(strpos($i, $racky) !== false){
+            $count++;
+        }
+    }
+    echo $count;

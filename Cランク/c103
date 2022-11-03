@@ -1,0 +1,32 @@
+ $input_line = explode(" ", trim(fgets(STDIN)));
+    $time = $input_line[0];
+    $action = $input_line[1];
+    $array = [];
+    for($i=0; $i<$action; $i++){
+        $a = trim(fgets(STDIN));
+        array_push($array, $a);
+    }
+    $array_count = count($array);
+    for($n=1; $n<=$time; $n++){
+        $count = 0;
+        $Array=[];
+        $d = "";
+        foreach ($array as $value) {
+            $b = explode(" ", $value);
+            $c = $value[0];
+            if($n%$c == 0){
+                $d .= $b[1]. " ";
+            }else{
+                $count++;
+            }
+        }
+        if($count == $array_count){
+            echo $n;
+            echo "\n";
+        }else{
+            $e = substr($d, 0, -1);
+            echo $e;
+            echo "\n";
+        }
+        
+    }

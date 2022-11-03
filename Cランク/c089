@@ -1,0 +1,23 @@
+    $input_line = explode(" ", fgets(STDIN));
+    $high = $input_line[0];
+    $width = $input_line[1];
+    $high_width = $input_line[0]*$input_line[1];
+    $marubatu =[];
+    $score = [];
+        for($i=0; $i<$high; $i++){
+            array_push($marubatu, trim(fgets(STDIN)));
+        }
+        for($i=0; $i<$high; $i++){
+            array_push($score, fgets(STDIN));
+        }
+        $marubatu = implode($marubatu);
+        $score = preg_replace('/[\n\r\t]/', ' ', $score);
+        $score = implode($score);
+        $score = explode(" ", $score);
+        $total = 0;
+        for($u=0; $u<$high_width; $u++){
+            if($marubatu[$u] == "o"){
+                $total += $score[$u];
+            }
+        }
+        echo $total;

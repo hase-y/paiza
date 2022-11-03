@@ -1,0 +1,36 @@
+ $input_line = explode(" ", trim(fgets(STDIN)));
+    $period = $input_line[0];
+    $num = $input_line[1];
+    $array = [];
+    for($i=0; $i<$period; $i++){
+        array_push($array, trim(fgets(STDIN)));
+    }
+    $max = max($array);
+    $max = $max/$num;
+    for($n=0; $n<$period; $n++){
+        $N = $array[$n]/$num;
+        $m = 0;
+        $l = 0;
+        $k = 0;
+        
+        if($N == $max){
+            echo $n+1,":";
+            while($m<$max){
+            echo "*";
+            $m++;
+            }
+            echo "\n";
+        }else{
+            echo $n+1,":";
+            while($l<$N){
+                echo "*";
+                $l++;
+            }
+            while($k<$max-$N){
+                echo ".";
+                $k++;
+            }
+            echo "\n";
+        }
+        
+    }

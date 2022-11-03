@@ -1,0 +1,61 @@
+    $input_line = explode(" ", trim(fgets(STDIN)));
+    $H = $input_line[0];
+    $W = $input_line[1];
+    $array_a = [];
+    for($i=0; $i<$H; $i++){
+        $a = explode(" ", trim(fgets(STDIN)));
+        array_push($array_a, $a);
+    }
+    $array_b = [];
+    for($i=0; $i<$H; $i++){
+        $b = explode(" ", trim(fgets(STDIN)));
+        array_push($array_b, $b);
+    }
+    for($n=0; $n<$H; $n++){
+        $c = $array_a[$n];
+        $C = $array_b[$n];
+        for($m=0; $m<$W; $m++){
+            $d = $c[$m+$m];
+            $D = $C[$m+$m];
+            array_splice($c, $m+$m, 0, $d);
+            array_splice($C, $m+$m, 0, $D);
+        }
+        $array_a[$n] = $c;
+        $array_b[$n] = $C;
+    }
+    //var_dump($array_a);
+    //$e = [];
+    for($l=0; $l<$H; $l++){
+        $z = $l+$l;
+        $e = $array_a[$z];
+        $f = $array_b[$z];
+        //var_dump($z);
+        array_splice($array_a, $z, 0, "a");
+        array_splice($array_b, $z, 0, "a");
+        $array_a[$z] = $e;
+        $array_b[$z] = $f;
+    }
+    //var_dump($array_a);
+    // $array_aに右に＋1、下に＋1して$array_bを足す
+    $Array = [];
+    for($i=0; $i<$H*2-1; $i++){
+        $g = $array_a[$i+1];
+        //var_dump($g);
+        $k = $array_b[$i];
+        $array = [];
+        $count = 0;
+        for($n=0; $n<$W*2-1; $n++){
+            $G = $g[$n+1];
+            $K = $k[$n];
+            $j = ($G+$K)/2;
+            $count++;
+            //array_push($array, floor($j));
+            echo floor($j);
+            if($count !== $W*2-1){
+                echo " ";
+            }
+        }
+        //array_push($Array, $array);
+        echo "\n";
+    }
+    //var_dump($Array);
